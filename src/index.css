@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-nordic: #3f4685;
+  --color-nordic-dark: #343a70;
+  --color-vanilla: #f7f3e8;
+  --color-sage: #dce6d5;
+  --color-sage-dark: #46613f;
+  --color-ink: #282a35;
+  --color-muted: #555869;
+  --color-danger: #b42318;
+
+  /* Neumorphic shadows: a warm shade of Vanilla Mist paired with white highlights */
+  --shadow-neu-sm: 3px 3px 8px #ddd6c4, -3px -3px 8px #ffffff;
+  --shadow-neu: 6px 6px 14px #ddd6c4, -6px -6px 14px #ffffff;
+  --shadow-neu-lg: 14px 14px 32px #dcd4c1, -14px -14px 32px #ffffff;
+  --shadow-neu-inset: inset 3px 3px 7px #ddd6c4, inset -3px -3px 7px #ffffff;
+  --shadow-neu-pressed: inset 3px 3px 7px #2c3163, inset -3px -3px 7px #525aa7;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keeps focused or scrolled-to elements clear of the sticky navbar. */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-vanilla font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-nordic text-white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Map pins (Leaflet divIcons): a teardrop pin with an icon inside. */
+.bm-pin {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 3px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0 6px 14px rgb(40 42 53 / 0.35);
+  transform: rotate(-45deg);
+}
+
+.bm-pin svg {
+  width: 18px;
+  height: 18px;
+  color: #fff;
+  transform: rotate(45deg);
+}
+
+.bm-pin-shop {
+  background: #3f4685;
+}
+
+.bm-pin-home {
+  background: #c2410c;
+}
+
+.leaflet-container {
+  font-family: inherit;
+}
